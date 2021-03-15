@@ -1,0 +1,166 @@
+/*
+ * Globals
+ */
+
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+svg {
+  fill: currentColor;
+}
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: #242424;
+  color: #fff;
+  overflow: hidden;
+}
+
+/*
+ * specific
+ */
+
+.width-limit {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.light-word {
+  color: rgba(255, 255, 255, .5);
+}
+
+.vertical-center {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: inherit;
+  height: inherit;
+}
+
+/*
+ * Header
+ */
+.nav-masthead .nav-link {
+  padding: .25rem 0;
+  font-weight: 700;
+  color: rgba(255, 255, 255, .5);
+  background-color: transparent;
+  border-bottom: .25rem solid transparent;
+}
+
+.nav-masthead .nav-link:hover,
+.nav-masthead .nav-link:focus {
+  border-bottom-color: rgba(255, 255, 255, .25);
+}
+
+.nav-masthead .nav-link+.nav-link {
+  margin-left: 1rem;
+}
+
+.nav-masthead .active {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+@media (min-width: 48em) {
+  .nav-masthead {
+    float: right;
+  }
+}
+
+/*
+ * carousel
+ */
+
+.d-flex>.carousel {
+  display: flex;
+}
+
+.carousel-item {
+  width: 100%;
+  height: 100%;
+}
+.vert .carousel-item-next:not(.carousel-item-start),
+.vert .active.carousel-item-end {
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+}
+
+.vert .carousel-item-prev:not(.carousel-item-end),
+.vert .active.carousel-item-start {
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+
+.vert .carousel-indicators {
+  flex-direction: column;
+  top: 0;
+  right: auto;
+  margin-right: 0;
+  margin-left: 1rem;
+  margin-top: 15%;
+  margin-bottom: 15%;
+}
+
+.vert .carousel-indicators li {
+  width: 3px;
+  height: 40px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-right: 0px;
+  margin-left: 0px;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top-width: 0;
+  border-bottom-width: 0;
+}
+
+
+/* project */
+
+:root {
+  --project-col: 2;
+  --project-item-h: 100;
+}
+
+.project-menu {
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding: 0.25rem;
+  margin: 0;
+  overflow-x: auto;
+}
+
+.project-menu>* {
+  flex-basis: calc(100% / var(--project-col) - 1rem);
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, .5);
+  height: calc(var(--project-item-h)*1px - 1rem);
+  margin: 0.5rem;
+}
+
+.project-menu a {
+  text-decoration: none;
+}
+
+.project-menu .footer {
+  font-size: min(1em, 3vw);
+}
