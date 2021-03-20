@@ -9,9 +9,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
-    </script>
+
 
     <link href="css/common.css" rel="stylesheet">
 </head>
@@ -88,20 +86,39 @@
                 bootstrap.Carousel.getInstance(document.getElementById('mainCarousel')).to("1");
             }
 
-            //scroll event
-            document.addEventListener("wheel", function (event) {
-                var domCarousel = document.getElementById("mainCarousel");
-                if (domCarousel.dataset.scroll == "false") return;
-                var mainCarousel = bootstrap.Carousel.getInstance(domCarousel);
-                if (event.deltaY < 0) {
-                    mainCarousel.prev();
-                } else if (event.deltaY > 0) {
-                    mainCarousel.next();
-                }
+            window.addEventListener("DOMContentLoaded", function (event) {
+                //scroll event
+                document.addEventListener("wheel", function (event) {
+                    let domCarousel = document.getElementById("mainCarousel");
+                    if (domCarousel.dataset.scroll === "false") return;
+                    let bsCarousel = bootstrap.Carousel.getInstance(domCarousel);
+                    if (event.deltaY < 0) {
+                        bsCarousel.prev();
+                    } else if (event.deltaY > 0) {
+                        bsCarousel.next();
+                    }
+                });
+                //touch event
+                let startY;
+                let domCarousel = document.getElementById("mainCarousel");
+                domCarousel.addEventListener('touchstart', function (event) {
+                    startY = event.changedTouches[0].pageY;
+                });
+                domCarousel.addEventListener('touchend', function (event) {
+                    if (this.dataset.scroll === "false") return;
+                    let bsCarousel = bootstrap.Carousel.getInstance(this);
+                    let endY = event.changedTouches[0].pageY;
+                    const minSwipe = 10;
+                    if (endY - minSwipe > startY)
+                        bsCarousel.prev();
+                    else if (endY + minSwipe < startY)
+                        bsCarousel.next();
+                });
             });
-            //todo touch event
         </script>
-
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+        </script>
     </div>
 </body>
 
