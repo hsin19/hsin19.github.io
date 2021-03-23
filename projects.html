@@ -9,9 +9,6 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
-    </script>
     <link href="css/common.css" rel="stylesheet">
 </head>
 
@@ -24,10 +21,27 @@
             </nav>
         </header>
 
-        <main class="flex-fill d-flex">
+        <main class="flex-fill container-fluid p-2 p-lg-4" style="overflow:auto;">
+            <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-2 g-lg-3">
+                <div class="col">
+                    <div class="card h-100 text-dark">
+                        <img src="..." class="card-img-top" alt="..." onerror="this.style.display='none'">
+                        <div class="card-body">
+                            <h5 class="card-title text-lg-start">title</h5>
+                            <p class="card-text m-auto">content</p>
+                            <p class="card-text text-end"><small class="text-muted">tags</small></p>
+                        </div>
+                    </div>
+                </div>
 
+            </div>
         </main>
-
+        <script>
+            let item = document.querySelector(".col");
+            for (let i = 0; i < 20; i++) {
+                document.querySelector(".row").insertAdjacentElement("beforeend", item.cloneNode(true));
+            }
+        </script>
         <footer>
             <ul class="nav justify-content-center light-word">
                 <li class="nav-item">
@@ -46,7 +60,9 @@
             </ul>
         </footer>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

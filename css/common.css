@@ -96,6 +96,7 @@ body {
   width: 100%;
   height: 100%;
 }
+
 .vert .carousel-item-next:not(.carousel-item-start),
 .vert .active.carousel-item-end {
   -webkit-transform: translateY(100%);
@@ -129,38 +130,4 @@ body {
   border-right: 10px solid transparent;
   border-top-width: 0;
   border-bottom-width: 0;
-}
-
-
-/* project */
-
-:root {
-  --project-col: 2;
-  --project-item-h: 100;
-}
-
-.project-menu {
-  flex-grow: 1;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  padding: 0.25rem;
-  margin: 0;
-  overflow-x: auto;
-}
-
-.project-menu>* {
-  flex-basis: calc(100% / var(--project-col) - 1rem);
-  flex-shrink: 0;
-  background-color: rgba(255, 255, 255, .5);
-  height: calc(var(--project-item-h)*1px - 1rem);
-  margin: 0.5rem;
-}
-
-.project-menu a {
-  text-decoration: none;
-}
-
-.project-menu .footer {
-  font-size: min(1em, 3vw);
 }
