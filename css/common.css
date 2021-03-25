@@ -131,3 +131,16 @@ body {
   border-top-width: 0;
   border-bottom-width: 0;
 }
+
+::-webkit-scrollbar {
+  width: 8px;               /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;        /* color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ffffff80;    /* color of the scroll thumb */
+  border-radius: 5px;       /* roundness of the scroll thumb */
+}
