@@ -1,19 +1,13 @@
 [{
+        "title": "Personal Website",
+        "content": "A static website that shows my information and side projects.<br>Frameworks: Bootstrap",
+        "tags": "HTML, JavaScript, CSS",
+        "link": "link"
+    },
+    {
         "img": "https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-        "title": "title",
+        "title": "test",
         "content": "contenttesttest",
-        "tags": "tags",
-        "link": "link"
-    },
-    {
-        "title": "title2",
-        "content": "contenttesttest",
-        "tags": "tags",
-        "link": "link"
-    },
-    {
-        "title": "test3",
-        "content": "test3test3test3test3test3test3test3test3test3test3test3test3test3test3test3test3test3test3test3test3",
         "tags": "tags",
         "link": "link"
     }

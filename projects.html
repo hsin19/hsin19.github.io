@@ -21,84 +21,61 @@
             </nav>
         </header>
 
-        <main class="flex-fill container-fluid p-2 p-lg-4" style="overflow:auto;">
-            <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-2 g-lg-3">
-                <div class="col">
-                    <div class="card h-100 text-dark">
-                        <img src="https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                            class="card-img-top" alt="..." onerror="this.style.display='none'">
-                        <div class="card-body">
-                            <h5 class="card-title text-lg-start">title</h5>
-                            <p class="card-text m-auto">content</p>
-                            <p class="card-text text-end"><small class="text-muted">tags</small></p>
-                        </div>
-                    </div>
-                </div>
+        <main class="flex-fill d-flex w-100 h-100 mx-auto flex-column justify-content-between" style="overflow:auto;">
+            <div class="container-fluid p-2 p-lg-4">
+                <div id="projectRow" class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-2 g-lg-3"></div>
             </div>
+            <footer>
+                <ul class="nav justify-content-center light-word">
+                    <li class="nav-item">
+                        <p class="mb-2">葉信賢, Eric Yeh</p>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link p-0 light-word" href="https://github.com/ericyeh94">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16">
+                                <title>GitHub</title>
+                                <path fill-rule="evenodd"
+                                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+                                </path>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </footer>
         </main>
         <script>
-            fetch("project.json") // Call the fetch function passing the url of the API as a parameter
+            fetch("project.json")
                 .then(response => response.json())
                 .then(data => addprojects(data));
 
             function addprojects(datas) {
-                datas.forEach(element => addProject(element));
-            }
-
-            function addProject(data) {
-                let card = document.createElement("div");
-                card.className = "card h-100 text-dark";
-                if ("img" in data) {
-                    let child = document.createElement("img");
-                    child.src = data["img"];
-                    child.className = "card-img-top";
-                    card.append(child);
-                }
-                let cardBody = document.createElement("div");
-                cardBody.classList.add("card-body");
-                if ("title" in data) {
-                    let child = document.createElement("h5");
-                    child.className = "card-title text-lg-start";
-                    child.textContent = data["title"];
-                    cardBody.append(child);
-                }
-                if ("content" in data) {
-                    let child = document.createElement("p");
-                    child.className = "card-text m-auto";
-                    child.textContent = data["content"];
-                    cardBody.append(child);
-                }
-                if ("tags" in data) {
-                    let child = document.createElement("p");
-                    child.className = "card-text text-end";
-                    child.innerHTML = "<small class=\"text-muted\">" + data["tags"] + "</small>";
-                    cardBody.append(child);
-                }
-                card.append(cardBody);
-                let col = document.createElement("div");
-                col.classList.add("col");
-                col.append(card);
-                console.log(col);
-                document.querySelector(".row").append(col);
+                let inner = "";
+                datas.forEach(function (data) {
+                    inner += `
+                    <div class="col">
+                        <div class="card h-100 text-dark border-secondary">
+                            ${data.hasOwnProperty("img")?`
+                            <img src="${data["img"]}" class="card-img-top">
+                            `:""}
+                            <div class="card-body">
+                                ${data.hasOwnProperty("title")?`
+                                <h5 class="card-title fw-bold text-lg-start">${data["title"]}</h5>
+                                `:""}
+                                ${data.hasOwnProperty("content")?`
+                                <p class="card-text text-start m-auto">${data["content"]}</p>
+                                `:""}
+                            </div>
+                            ${data.hasOwnProperty("tags")?`
+                            <p class="text-end p-3 m-0"><small class="text-muted">${data["tags"]}</small></p>
+                            `:""}
+                        </div>
+                    </div>
+                    `;
+                });
+                document.getElementById("projectRow").innerHTML = inner;
             }
         </script>
-        <footer>
-            <ul class="nav justify-content-center light-word">
-                <li class="nav-item">
-                    <p class="mb-2">葉信賢, Eric Yeh</p>
-                </li>
-                <li class="nav-item mx-2">
-                    <a class="nav-link p-0 light-word" href="https://github.com/ericyeh94">
-                        <svg width="1em" height="1em" viewBox="0 0 16 16">
-                            <title>GitHub</title>
-                            <path fill-rule="evenodd"
-                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
-                            </path>
-                        </svg>
-                    </a>
-                </li>
-            </ul>
-        </footer>
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
