@@ -1,14 +1,38 @@
-[{
-        "title": "Personal Website",
-        "content": "A static website that shows my information and side projects.<br>Frameworks: Bootstrap",
-        "tags": "HTML, JavaScript, CSS",
-        "link": "link"
-    },
-    {
-        "img": "https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-        "title": "test",
-        "content": "contenttesttest",
-        "tags": "tags",
-        "link": "link"
+{
+    "project": [{
+            "title": "Personal Website",
+            "content": "A static website that shows my information and side projects.",
+            "tags": "HTML, JS, Bootstrap",
+            "github": "https://github.com/hsin19/hsin19.github.io",
+            "external": "https://hsin19.github.io/index.html"
+        },
+        {
+            "title": "Personal Website",
+            "content": "A static website that shows my information and side projects.A static website that shows my information and side projectsA static website that shows my information and side projectsA static website that shows my information and side projectsA static website that shows my information and side projects",
+            "tags": "HTML, JS, Bootstrap",
+            "github": "https://github.com/hsin19/hsin19.github.io",
+            "external": "https://hsin19.github.io/index.html"
+        }, {
+            "title": "Personal Website",
+            "content": "A static website that shows my information and side projects.",
+            "tags": "HTML, JS, Bootstrap",
+            "github": "https://github.com/hsin19/hsin19.github.io",
+            "external": "https://hsin19.github.io/index.html"
+        }, {
+            "title": "Personal Website",
+            "content": "A static website that shows my information and side projects.",
+            "tags": "HTML, JS, Bootstrap",
+            "github": "https://github.com/hsin19/hsin19.github.io",
+            "external": "https://hsin19.github.io/index.html"
+        }, {
+            "title": "Personal Website",
+            "content": "A static website that shows my information and side projects.",
+            "tags": "HTML, JS, Bootstrap",
+            "github": "https://github.com/hsin19/hsin19.github.io",
+            "external": "https://hsin19.github.io/index.html"
+        }
+    ],
+    "icon": {
+        "github": ""
     }
-]
+}
