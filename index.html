@@ -24,7 +24,7 @@
 
         <main id="mainCarousel" class="flex-fill carousel slide vert" data-bs-ride="carousel" data-bs-interval="false"
             data-bs-touch="false" data-scroll="false">
-            <ol class="carousel-indicators" id="sideMenu" style="display:none">
+            <ol class="carousel-indicators" id="sideMenu">
                 <li data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></button>
                 <li data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
                 <li data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
@@ -32,10 +32,18 @@
             <div class="carousel-inner">
                 <!-- home Page -->
                 <div class="carousel-item active">
-                    <div class="vertical-center width-limit">
-                        <img src="img/stamp.png" style="max-width: 40%; max-height: 30%;">
-                        <br><br>
-                        <h3 class="text-start">Hi,<br> I’m Yeh, Hsin-Hsien,<br> a software engineer from Taiwan.</h3>
+                    <div class="width-limit d-flex h-100 flex-column justify-content-center ">
+                        <div>
+                            <img src="img/stamp.png" style="max-width: 40vw; max-height: 30vh;">
+                        </div>
+                        <br>
+                        <div class="p-5">
+                            <h3 class="d-inline-block text-start">
+                                Hi,<br>
+                                I’m Yeh, Hsin-Hsien,<br>
+                                a software engineer from Taiwan.</h3>
+                        </div>
+
                     </div>
                     <div class="fixed-bottom">
                         <button class="btn btn-outline-light mb-3" onclick="MoreInf()" id="btn_showMore"
@@ -52,9 +60,7 @@
 
                 <!-- Education -->
                 <div class="carousel-item">
-                    <div class="vertical-center width-limit">
-                        <h3>Education</h3>
-                    </div>
+                    <h3>Education</h3>
                 </div>
             </div>
         </main>
