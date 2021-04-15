@@ -1,6 +1,7 @@
 /*
  * Globals
  */
+
 :root {
   --color-background: #113042;
   --color-background-2: #287099;
@@ -84,9 +85,18 @@ a:hover.bg-3rd.btn {
   color: var(--color-1);
 }
 
+.full-flex {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+}
+
 /*
  * Header
  */
+
 .nav-masthead .nav-link {
   padding: .25rem 0;
   font-weight: 700;
@@ -122,25 +132,27 @@ a:hover.bg-3rd.btn {
  * carousel
  */
 
-.carousel>.carousel-inner {
-  height: 100%;
+.vert.carousel>.carousel-inner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  padding-right: calc(.5rem + 25px);
+  padding-left: calc(.5rem + 25px);
 }
 
-.carousel-item {
+.vert .carousel-item {
   height: 100%;
-  margin-bottom: -100%;
-  margin-right: 0;
 }
 
 .vert .carousel-item-next:not(.carousel-item-start),
 .vert .active.carousel-item-end {
-  -webkit-transform: translateY(100%);
   transform: translateY(100%);
 }
 
 .vert .carousel-item-prev:not(.carousel-item-end),
 .vert .active.carousel-item-start {
-  -webkit-transform: translateY(-100%);
   transform: translateY(-100%);
 }
 
@@ -149,7 +161,7 @@ a:hover.bg-3rd.btn {
   top: 0;
   right: auto;
   margin-right: 0;
-  margin-left: 1rem;
+  margin-left: .5rem;
   margin-top: 15%;
   margin-bottom: 15%;
 }
@@ -165,6 +177,53 @@ a:hover.bg-3rd.btn {
   border-right: 10px solid transparent;
   border-top-width: 0;
   border-bottom-width: 0;
+}
+
+@media (min-width: 48em) {
+  .vert .carousel-indicators {
+    margin-left: 1rem;
+  }
+
+  .vert.carousel>.carousel-inner {
+    padding-right: calc(1rem + 25px);
+    padding-left: calc(1rem + 25px);
+  }
+}
+
+/*
+ * timeline
+ */
+
+.timeline {
+  -webkit-appearance: none;
+  display: flex;
+  height: 1rem;
+  border-radius: .8rem;
+  background: linear-gradient(to right, red, white);
+  outline: none;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  transition: transform 800ms ease-out;
+}
+
+.timeline::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  position: relative;
+  top: -2rem;
+  width: 2rem;
+  height: 4rem;
+  cursor: pointer;
+  background: #4CAF50;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.timeline::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
 }
 
 /*
