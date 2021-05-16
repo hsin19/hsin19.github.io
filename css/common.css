@@ -45,7 +45,7 @@ body {
  */
 
 .width-limit {
-  max-width: 2048px;
+  max-width: 60rem;
   margin: 0 auto;
 }
 
@@ -91,6 +91,15 @@ a:hover.bg-3rd.btn {
   height: 100%;
   width: 100%;
   justify-content: center;
+  flex: 1 1 auto;
+}
+
+.full-flex-row {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
 }
 
 /*
@@ -132,31 +141,34 @@ a:hover.bg-3rd.btn {
  * carousel
  */
 
-.vert.carousel>.carousel-inner {
+.carousel-inner {
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
+}
+
+.vert.carousel>.carousel-inner {
   padding-right: calc(.5rem + 25px);
   padding-left: calc(.5rem + 25px);
 }
 
-.vert .carousel-item {
+.carousel-item {
   height: 100%;
 }
 
-.vert .carousel-item-next:not(.carousel-item-start),
-.vert .active.carousel-item-end {
+.vert>.carousel-inner>.carousel-item-next:not(.carousel-item-start),
+.vert>.carousel-inner>.active.carousel-item-end {
   transform: translateY(100%);
 }
 
-.vert .carousel-item-prev:not(.carousel-item-end),
-.vert .active.carousel-item-start {
+.vert>.carousel-inner>.carousel-item-prev:not(.carousel-item-end),
+.vert>.carousel-inner>.active.carousel-item-start {
   transform: translateY(-100%);
 }
 
-.vert .carousel-indicators {
+.vert>.carousel-indicators {
   flex-direction: column;
   top: 0;
   right: auto;
@@ -166,7 +178,7 @@ a:hover.bg-3rd.btn {
   margin-bottom: 15%;
 }
 
-.vert .carousel-indicators li {
+.vert>.carousel-indicators li {
   width: 3px;
   height: 40px;
   margin-top: 4px;
@@ -180,7 +192,7 @@ a:hover.bg-3rd.btn {
 }
 
 @media (min-width: 48em) {
-  .vert .carousel-indicators {
+  .vert>.carousel-indicators {
     margin-left: 1rem;
   }
 
@@ -199,11 +211,19 @@ a:hover.bg-3rd.btn {
   display: flex;
   height: 1rem;
   border-radius: .8rem;
-  background: linear-gradient(to right, red, white);
+  /* background: linear-gradient(to right, red, white); */
   outline: none;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  transition: transform 800ms ease-out;
+  transition: transform 500ms ease-out;
+}
+
+.timeline::before {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  left: 0;
+  color: #113042;
 }
 
 .timeline::-webkit-slider-thumb {
@@ -241,4 +261,17 @@ a:hover.bg-3rd.btn {
 ::-webkit-scrollbar-thumb {
   background-color: rgba(255, 255, 255, .5);
   border-radius: 5px;
+}
+
+.timelineItem{
+  display: none;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  flex: 1 1 auto;
+}
+
+.timelineItem.active{
+  display: flex;
 }
