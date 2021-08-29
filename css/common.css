@@ -263,7 +263,7 @@ a:hover.bg-3rd.btn {
   border-radius: 5px;
 }
 
-.timelineItem{
+.timelineItem {
   display: none;
   flex-direction: column;
   height: 100%;
@@ -272,6 +272,42 @@ a:hover.bg-3rd.btn {
   flex: 1 1 auto;
 }
 
-.timelineItem.active{
+.timelineItem.active {
   display: flex;
+}
+
+.timelineItem .tlHeader {
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 48em) {
+  .timelineItem .tlHeader>* {
+    display: inline;
+    margin-right: 1rem;
+  }
+}
+
+.timelineItem .tlHeader>img {
+  max-width: min(50vw, 50rem);
+  max-height: min(15vh, 20rem);
+  margin-bottom: .5em;
+}
+
+.timelineItem .tlHeader>*:last-child{
+  margin-bottom: 0;
+}
+
+.timelineItem .tlTime {
+  width: auto;
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+.timelineItem .tlContent {
+  max-width: 60rem;
+  display: inline-block;
+  text-align: left;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: .5em;
 }
