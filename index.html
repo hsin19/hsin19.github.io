@@ -68,7 +68,7 @@
                 <div class="carousel-item">
                     <div class="full-flex overflow-hidden">
                         <div class="full-flex" id="experience">
-                            <div class="timelineItem" data-begin="2013" data-end="2017">
+                            <div class="timelineItem">
                                 <div class="tlHeader">
                                     <img src="img/logo_thu.png" width="250px">
                                     <p class="tlTime">Sep. 2013 - Jun. 2017</p>
@@ -77,7 +77,7 @@
                                 <p class="tlContent">
                                     Bachelor of Engineering, Computer Science (Software Engineering) </p>
                             </div>
-                            <div class="timelineItem " data-begin="2016" data-end="2017">
+                            <div class="timelineItem">
                                 <div class="tlHeader">
                                     <img src="img/logo_glm.png">
                                     <p class="tlTime">Jun. 2016 - May 2017</p>
@@ -91,7 +91,7 @@
                                     - Using MSSQL, T-SQL and JAVA
                                 </p>
                             </div>
-                            <div class="timelineItem" data-begin="2017" data-end="2019">
+                            <div class="timelineItem">
                                 <div class="tlHeader">
                                     <img src="img/logo_cvc.png">
                                     <p class="tlTime">Oct. 2017 - Mar. 2019</p>
@@ -108,7 +108,7 @@
                                     - Using C# WinForm
                                 </p>
                             </div>
-                            <div class="timelineItem active" data-begin="2020" data-end="Infinity">
+                            <div class="timelineItem active">
                                 <div class="tlHeader">
                                     <h3>Freelancer</h3>
                                     <p class="tlTime">Jan. 2020 - current</p>
@@ -212,7 +212,9 @@
             //experience page
             let timeline = document.querySelector("#timeline");
             let timelineItem = document.querySelectorAll("#experience>.timelineItem")
-            document.querySelector("#timeline").max = timelineItem.length - 1;
+            let max = timelineItem.length - 1
+            document.querySelector("#timeline").max = max;
+            document.querySelector("#timeline").value = max;
             timeline.addEventListener("input", function () {
                 for (let i = 0; i < timelineItem.length; i++) {
                     if (i == timeline.value)

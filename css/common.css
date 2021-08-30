@@ -218,14 +218,6 @@ a:hover.bg-3rd.btn {
   transition: transform 500ms ease-out;
 }
 
-.timeline::before {
-  position: relative;
-  height: 100px;
-  width: 100px;
-  left: 0;
-  color: #113042;
-}
-
 .timeline::-webkit-slider-thumb {
   -webkit-appearance: none;
   position: relative;
@@ -244,23 +236,6 @@ a:hover.bg-3rd.btn {
   border-radius: 50%;
   background: #4CAF50;
   cursor: pointer;
-}
-
-/*
- * scrollbar style
- */
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, .5);
-  border-radius: 5px;
 }
 
 .timelineItem {
@@ -310,4 +285,21 @@ a:hover.bg-3rd.btn {
   margin-right: auto;
   margin-left: auto;
   margin-bottom: .5em;
+}
+
+/*
+ * scrollbar style
+ */
+
+ ::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, .5);
+  border-radius: 5px;
 }
