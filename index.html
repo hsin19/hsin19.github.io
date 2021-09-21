@@ -1,237 +1,253 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <title>Eric Yeh</title>
+        <link rel="shortcut icon" href="img/favicon.ico" />
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <title>Eric Yeh</title>
-    <link rel="shortcut icon" href="img/favicon.ico">
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+            crossorigin="anonymous"
+        />
+        <link href="css/common.css" rel="stylesheet" />
+    </head>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link href="css/common.css" rel="stylesheet">
-</head>
+    <body class="text-center">
+        <div class="full-flex mx-auto justify-content-between">
+            <header class="inner mx-3 mt-3">
+                <nav class="nav nav-masthead justify-content-center">
+                    <a class="nav-link active" href="index.html">Introduction</a>
+                    <a class="nav-link" href="projects.html">Projects</a>
+                </nav>
+            </header>
 
-<body class="text-center">
-    <div class="full-flex mx-auto justify-content-between">
-        <header class="inner mx-3 mt-3">
-            <nav class="nav nav-masthead justify-content-center">
-                <a class="nav-link active" href="index.html">Introduction</a>
-                <a class="nav-link" href="projects.html">Projects</a>
-            </nav>
-        </header>
-
-        <main id="mainCarousel" class="flex-fill carousel slide vert" data-bs-ride="carousel" data-bs-interval="false"
-            data-bs-touch="false" data-scroll="false">
-            <ol class="carousel-indicators" id="sideMenu" style="display: none;">
-                <li data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></li>
-                <li data-bs-target="#mainCarousel" data-bs-slide-to="1"></li>
-                <li data-bs-target="#mainCarousel" data-bs-slide-to="2"></li>
-                <li data-bs-target="#mainCarousel" data-bs-slide-to="3"></li>
-            </ol>
-            <div class="carousel-inner">
-                <!-- home Page -->
-                <div class="carousel-item active">
-                    <div class="width-limit full-flex ">
-                        <div style="flex-grow: 2;"></div>
-                        <div>
-                            <img src="img/stamp.png" style="max-width: 40vw; max-height: 30vh;">
+            <main
+                id="mainCarousel"
+                class="flex-fill carousel slide vert"
+                data-bs-ride="carousel"
+                data-bs-interval="false"
+                data-bs-touch="false"
+                data-scroll="false"
+            >
+                <ol class="carousel-indicators" id="sideMenu" style="display: none">
+                    <li data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></li>
+                    <li data-bs-target="#mainCarousel" data-bs-slide-to="1"></li>
+                    <li data-bs-target="#mainCarousel" data-bs-slide-to="2"></li>
+                    <li data-bs-target="#mainCarousel" data-bs-slide-to="3"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <!-- home Page -->
+                    <div class="carousel-item active">
+                        <div class="width-limit full-flex">
+                            <div style="flex-grow: 2"></div>
+                            <div>
+                                <img src="img/stamp.png" style="max-width: 40vw; max-height: 30vh" />
+                            </div>
+                            <div style="flex-grow: 1"></div>
+                            <div>
+                                <h3 class="d-inline-block text-start">
+                                    Hi,<br />
+                                    I’m Yeh, Hsin-Hsien,<br />
+                                    a software engineer from Taiwan.
+                                </h3>
+                            </div>
+                            <div style="flex-grow: 3"></div>
                         </div>
-                        <div style="flex-grow: 1;"></div>
-                        <div>
-                            <h3 class="d-inline-block text-start">
-                                Hi,<br>
-                                I’m Yeh, Hsin-Hsien,<br>
-                                a software engineer from Taiwan.</h3>
+                        <div class="fixed-bottom">
+                            <button
+                                class="btn btn-outline-light mb-3"
+                                onclick="MoreInf()"
+                                id="btn_showMore"
+                                type="button"
+                            >
+                                More
+                            </button>
                         </div>
-                        <div style="flex-grow: 3;"></div>
                     </div>
-                    <div class="fixed-bottom">
-                        <button class="btn btn-outline-light mb-3" onclick="MoreInf()" id="btn_showMore"
-                            type="button">More</button>
+
+                    <!-- Personal Data -->
+                    <div class="carousel-item">
+                        <div class="width-limit full-flex">
+                            <h3>About me</h3>
+                            <p>
+                                Over 5 years of experience in programming, having good logic to analysis and solve
+                                questions, writing beautiful code with Object-oriented programming, quick grasp of new
+                                technologies and knowledge, with the ability to develop programs alone or in
+                                collaboration.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- experience -->
+                    <div class="carousel-item">
+                        <div class="full-flex overflow-hidden">
+                            <div class="full-flex" id="experience">
+                                <div class="timelineItem">
+                                    <div class="tlHeader">
+                                        <img src="img/logo_thu.png" width="250px" />
+                                        <p class="tlTime">Sep. 2013 - Jun. 2017</p>
+                                    </div>
+                                    <p class="tlContent">TungHai University, Taichung, Taiwan</p>
+                                    <p class="tlContent">
+                                        Bachelor of Engineering, Computer Science (Software Engineering)
+                                    </p>
+                                </div>
+                                <div class="timelineItem">
+                                    <div class="tlHeader">
+                                        <img src="img/logo_glm.png" />
+                                        <p class="tlTime">Jun. 2016 - May 2017</p>
+                                    </div>
+                                    <p class="tlContent">Software Engineer Intern, Immense Digitize Engineering</p>
+                                    <p class="tlContent">
+                                        Immense is a software company that provides web-based cloud ERP. I was an intern
+                                        as in my senior year, and responsible for<br />
+                                        - Modify the database according to customer requirements<br />
+                                        - Retrieve data and generate reports<br />
+                                        - Using MSSQL, T-SQL and JAVA
+                                    </p>
+                                </div>
+                                <div class="timelineItem">
+                                    <div class="tlHeader">
+                                        <img src="img/logo_cvc.png" />
+                                        <p class="tlTime">Oct. 2017 - Mar. 2019</p>
+                                    </div>
+
+                                    <p class="tlContent">Software Engineer, CVC Technologies</p>
+                                    <p class="tlContent">
+                                        CVC is a professional manufacturer of pharmaceutical packaging equipment. The
+                                        company wanted to switch the control system from plc-base to pc-base, and I was
+                                        involved in the development of this system.<br />
+                                        - Independently develope interface design, testing process control, user
+                                        management system, log system, etc<br />
+                                        - Link others system including detection logic, plc and some hardware control<br />
+                                        - Using C# WinForm
+                                    </p>
+                                </div>
+                                <div class="timelineItem active">
+                                    <div class="tlHeader">
+                                        <h3>Freelancer</h3>
+                                        <p class="tlTime">Jan. 2020 - current</p>
+                                    </div>
+                                    <p class="tlContent">
+                                        The main work is as a tutor to teach high school programming, sometimes take
+                                        cases, including some api and web development and game scripts.
+                                    </p>
+                                </div>
+                            </div>
+                            <input id="timeline" type="range" class="timeline" />
+                        </div>
+                    </div>
+
+                    <!-- contact -->
+                    <div class="carousel-item">
+                        <div class="width-limit full-flex">
+                            <h3>Contact Me</h3>
+                            <a href="mailto: eric91343@gmail.com" style="text-decoration: none">
+                                <h3>
+                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="me-2">
+                                        <path
+                                            d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"
+                                        />
+                                    </svg>
+                                    eric91343@gmail.com
+                                </h3>
+                            </a>
+                            <a href="https://github.com/hsin19" style="text-decoration: none" target="_blank">
+                                <h3>
+                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="me-1">
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+                                        ></path>
+                                    </svg>
+                                    hsin19
+                                </h3>
+                            </a>
+                        </div>
                     </div>
                 </div>
+            </main>
 
-                <!-- Personal Data -->
-                <div class="carousel-item">
-                    <div class="width-limit full-flex">
-                        <h3>About me</h3>
-                        <p>Over 5 years of experience in programming, having good logic to analysis and solve
-                            questions, writing beautiful code with Object-oriented programming, quick grasp of new
-                            technologies and knowledge, with the ability to develop programs alone or in collaboration.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- experience -->
-                <div class="carousel-item">
-                    <div class="full-flex overflow-hidden">
-                        <div class="full-flex" id="experience">
-                            <div class="timelineItem">
-                                <div class="tlHeader">
-                                    <img src="img/logo_thu.png" width="250px">
-                                    <p class="tlTime">Sep. 2013 - Jun. 2017</p>
-                                </div>
-                                <p class="tlContent">TungHai University, Taichung, Taiwan</p>
-                                <p class="tlContent">
-                                    Bachelor of Engineering, Computer Science (Software Engineering) </p>
-                            </div>
-                            <div class="timelineItem">
-                                <div class="tlHeader">
-                                    <img src="img/logo_glm.png">
-                                    <p class="tlTime">Jun. 2016 - May 2017</p>
-                                </div>
-                                <p class="tlContent">Software Engineer Intern, Immense Digitize Engineering</p>
-                                <p class="tlContent">
-                                    Immense is a software company that provides web-based cloud ERP.
-                                    I was an intern as in my senior year, and responsible for<br>
-                                    - Modify the database according to customer requirements<br>
-                                    - Retrieve data and generate reports<br>
-                                    - Using MSSQL, T-SQL and JAVA
-                                </p>
-                            </div>
-                            <div class="timelineItem">
-                                <div class="tlHeader">
-                                    <img src="img/logo_cvc.png">
-                                    <p class="tlTime">Oct. 2017 - Mar. 2019</p>
-                                </div>
-
-                                <p class="tlContent">Software Engineer, CVC Technologies</p>
-                                <p class="tlContent">
-                                    CVC is a professional manufacturer of pharmaceutical packaging equipment.
-                                    The company wanted to switch the control system from plc-base to pc-base, and I was
-                                    involved in the development of this system.<br>
-                                    - Independently develope interface design, testing process control, user
-                                    management system, log system, etc<br>
-                                    - Link others system including detection logic, plc and some hardware control<br>
-                                    - Using C# WinForm
-                                </p>
-                            </div>
-                            <div class="timelineItem active">
-                                <div class="tlHeader">
-                                    <h3>Freelancer</h3>
-                                    <p class="tlTime">Jan. 2020 - current</p>
-                                </div>
-                                <p class="tlContent">
-                                    The main work is as a tutor to teach high school programming, sometimes take cases,
-                                    including some api and web development and game scripts.
-                                </p>
-                            </div>
-                        </div>
-                        <input id="timeline" type="range" class="timeline">
-                    </div>
-                </div>
-
-                <!-- contact -->
-                <div class="carousel-item">
-                    <div class="width-limit full-flex">
-                        <h3>Contact Me</h3>
-                        <a href="mailto: eric91343@gmail.com" style="text-decoration: none;">
-                            <h3>
-                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="me-2">
-                                    <path
-                                        d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z" />
-                                </svg>
-                                eric91343@gmail.com
-                            </h3>
+            <footer id="signature" style="visibility: hidden">
+                <ul class="nav justify-content-center light-word">
+                    <li class="nav-item">
+                        <p class="mb-2">葉信賢, Eric Yeh</p>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link p-0 light-word" href="https://github.com/hsin19" target="_blank">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16">
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+                                ></path>
+                            </svg>
                         </a>
-                        <a href="https://github.com/hsin19" style="text-decoration: none;">
-                            <h3>
-                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="me-1">
-                                    <path fill-rule="evenodd"
-                                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
-                                    </path>
-                                </svg>
-                                hsin19
-                            </h3>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </main>
+                    </li>
+                </ul>
+            </footer>
 
-        <footer id="signature" style="visibility:hidden">
-            <ul class="nav justify-content-center light-word">
-                <li class="nav-item">
-                    <p class="mb-2">葉信賢, Eric Yeh</p>
-                </li>
-                <li class="nav-item mx-2">
-                    <a class="nav-link p-0 light-word" href="https://github.com/hsin19">
-                        <svg width="1em" height="1em" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
-                            </path>
-                        </svg>
-                    </a>
-                </li>
-            </ul>
-        </footer>
+            <script language="javascript">
+                function MoreInf(toShow) {
+                    document.getElementById("mainCarousel").dataset.scroll = true;
+                    document.getElementById("btn_showMore").style.display = "none";
+                    document.getElementById("signature").style.visibility = "visible";
+                    document.getElementById("sideMenu").style.display = "flex";
+                    bootstrap.Carousel.getInstance(document.getElementById("mainCarousel")).to("1");
+                }
 
-        <script language="javascript">
-            function MoreInf(toShow) {
-                document.getElementById("mainCarousel").dataset.scroll = true;
-                document.getElementById("btn_showMore").style.display = "none";
-                document.getElementById("signature").style.visibility = "visible";
-                document.getElementById("sideMenu").style.display = "flex";
-                bootstrap.Carousel.getInstance(document.getElementById('mainCarousel')).to("1");
-            }
-
-            window.addEventListener("DOMContentLoaded", function (event) {
-                //scroll event
-                document.addEventListener("wheel", function (event) {
+                window.addEventListener("DOMContentLoaded", function (event) {
+                    //scroll event
+                    document.addEventListener("wheel", function (event) {
+                        let domCarousel = document.getElementById("mainCarousel");
+                        if (domCarousel.dataset.scroll === "false") return;
+                        let bsCarousel = bootstrap.Carousel.getInstance(domCarousel);
+                        if (event.deltaY < 0) {
+                            bsCarousel.prev();
+                        } else if (event.deltaY > 0) {
+                            bsCarousel.next();
+                        }
+                    });
+                    //touch event
+                    let startY;
                     let domCarousel = document.getElementById("mainCarousel");
-                    if (domCarousel.dataset.scroll === "false") return;
-                    let bsCarousel = bootstrap.Carousel.getInstance(domCarousel);
-                    if (event.deltaY < 0) {
-                        bsCarousel.prev();
-                    } else if (event.deltaY > 0) {
-                        bsCarousel.next();
+                    domCarousel.addEventListener("touchstart", function (event) {
+                        startY = event.changedTouches[0].pageY;
+                    });
+                    domCarousel.addEventListener("touchend", function (event) {
+                        if (this.dataset.scroll === "false") return;
+                        let bsCarousel = bootstrap.Carousel.getInstance(this);
+                        let endY = event.changedTouches[0].pageY;
+                        const minSwipe = 10;
+                        if (endY - minSwipe > startY) bsCarousel.prev();
+                        else if (endY + minSwipe < startY) bsCarousel.next();
+                    });
+                });
+                //experience page
+                let timeline = document.querySelector("#timeline");
+                let timelineItem = document.querySelectorAll("#experience>.timelineItem");
+                let max = timelineItem.length - 1;
+                document.querySelector("#timeline").max = max;
+                document.querySelector("#timeline").value = max;
+                timeline.addEventListener("input", function () {
+                    for (let i = 0; i < timelineItem.length; i++) {
+                        if (i == timeline.value) timelineItem[i].classList.add("active");
+                        else timelineItem[i].classList.remove("active");
                     }
                 });
-                //touch event
-                let startY;
-                let domCarousel = document.getElementById("mainCarousel");
-                domCarousel.addEventListener('touchstart', function (event) {
-                    startY = event.changedTouches[0].pageY;
+
+                timeline.addEventListener("touchend", function (e) {
+                    e.stopPropagation(); //ban swipe event
                 });
-                domCarousel.addEventListener('touchend', function (event) {
-                    if (this.dataset.scroll === "false") return;
-                    let bsCarousel = bootstrap.Carousel.getInstance(this);
-                    let endY = event.changedTouches[0].pageY;
-                    const minSwipe = 10;
-                    if (endY - minSwipe > startY)
-                        bsCarousel.prev();
-                    else if (endY + minSwipe < startY)
-                        bsCarousel.next();
-                });
-
-
-
-            });
-            //experience page
-            let timeline = document.querySelector("#timeline");
-            let timelineItem = document.querySelectorAll("#experience>.timelineItem")
-            let max = timelineItem.length - 1
-            document.querySelector("#timeline").max = max;
-            document.querySelector("#timeline").value = max;
-            timeline.addEventListener("input", function () {
-                for (let i = 0; i < timelineItem.length; i++) {
-                    if (i == timeline.value)
-                        timelineItem[i].classList.add("active");
-                    else
-                        timelineItem[i].classList.remove("active");
-                }
-            });
-
-            timeline.addEventListener("touchend", function (e) {
-                e.stopPropagation(); //ban swipe event
-            });
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
-        </script>
-    </div>
-</body>
-
+            </script>
+            <script
+                src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+                crossorigin="anonymous"
+            ></script>
+        </div>
+    </body>
 </html>
