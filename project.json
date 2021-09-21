@@ -9,7 +9,7 @@
         },
         {
             "title": "Order Site",
-            "content": "A small but complete ordering website. Use google sheet as background control, and implement some functions and post/get interface with google app script. The front end is developed with vanilla js and bootstrap.",
+            "content": "A small but complete ordering website. Use google sheet as backend control, and implement some automation functions and  HTTP GET/POST request with google app script. The frontend is developed with vanilla js and bootstrap.",
             "tags": "Google App Script, HTML, JS",
             "github": "https://github.com/hsin19/orderSite",
             "external": "https://hsin19.github.io/orderSite/"
