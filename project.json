@@ -1,13 +1,18 @@
 {
-    "project": [{
+    "project": [
+        {
             "title": "Personal Website",
             "content": "A static website that shows my information and side projects.",
             "tags": "HTML, JS, Bootstrap",
             "github": "https://github.com/hsin19/hsin19.github.io",
             "external": "https://hsin19.github.io/index.html"
+        },
+        {
+            "title": "Order Site",
+            "content": "A static website that shows my information and side projects.",
+            "tags": "Google App Script, HTML, JS",
+            "github": "https://github.com/hsin19/orderSite",
+            "external": "https://hsin19.github.io/orderSite/"
         }
-    ],
-    "icon": {
-        "github": ""
-    }
+    ]
 }
