@@ -10,7 +10,7 @@
         {
             "title": "Order Site",
             "content": "A small but complete ordering website.<br> - Use google Sheets, No Server Required!<br> - Responsive Web Design",
-            "tags": "Google App Script, HTML, JS",
+            "tags": "Google App Script, JS, Bootstrap",
             "github": "https://github.com/hsin19/orderSite",
             "external": "https://hsin19.github.io/orderSite/"
         }
