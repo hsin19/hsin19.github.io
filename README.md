@@ -15,14 +15,15 @@ pnpm run check     # format, lint, typecheck, build
 
 ## Where things live
 
-| Path                    | What                                                           |
-| ----------------------- | -------------------------------------------------------------- |
-| `src/data/`             | All content: profile, launchpad, projects, experience          |
-| `src/components/`       | Page sections                                                  |
-| `src/components/stage/` | The decorative scene behind the hero (swappable)               |
-| `src/styles/global.css` | Theme tokens and base styles                                   |
-| `public/seal.svg`       | The seal, vectorized from the original stamp; also the favicon |
-| `docs/ROADMAP.md`       | Where this site can grow next                                  |
+| Path                             | What                                                           |
+| -------------------------------- | -------------------------------------------------------------- |
+| `packages/content/`              | All site data (JSON) and project icons — edit content here     |
+| `apps/web/src/content.config.ts` | Schemas the data is validated against at build time            |
+| `apps/web/src/lib/`              | The content loader — the one place that knows where data lives |
+| `apps/web/src/components/`       | Page sections; `stage/` is the swappable scene behind the hero |
+| `apps/web/src/styles/global.css` | Theme tokens and base styles                                   |
+| `apps/web/public/seal.svg`       | The seal, vectorized from the original stamp; also the favicon |
+| `docs/ROADMAP.md`                | Where this site can grow next                                  |
 
 ## Deploy
 

@@ -165,20 +165,7 @@ settings:
 importers:
 
   .:
-    dependencies:
-      '@astrojs/sitemap':
-        specifier: ^3.7.4
-        version: 3.7.4
-      astro:
-        specifier: ^7.3.5
-        version: 7.3.5(@types/node@24.19.0)(yaml@2.9.1)
-      sharp:
-        specifier: ^0.35.5
-        version: 0.35.5(@types/node@24.19.0)
     devDependencies:
-      '@astrojs/check':
-        specifier: ^0.9.10
-        version: 0.9.10(@emnapi/runtime@1.11.3)(prettier@3.9.9)(typescript@6.0.3)
       dprint:
         specifier: ^0.58.0
         version: 0.58.0
@@ -191,9 +178,30 @@ importers:
       simple-git-hooks:
         specifier: ^2.14.0
         version: 2.14.0
+
+  apps/web:
+    dependencies:
+      '@astrojs/sitemap':
+        specifier: ^3.7.4
+        version: 3.7.4
+      '@hsin19/content':
+        specifier: workspace:*
+        version: link:../../packages/content
+      astro:
+        specifier: ^7.3.5
+        version: 7.3.5(@types/node@24.19.0)(yaml@2.9.1)
+      sharp:
+        specifier: ^0.35.5
+        version: 0.35.5(@types/node@24.19.0)
+    devDependencies:
+      '@astrojs/check':
+        specifier: ^0.9.10
+        version: 0.9.10(@emnapi/runtime@1.11.3)(prettier@3.9.9)(typescript@6.0.3)
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
+
+  packages/content: {}
 
 packages:
 

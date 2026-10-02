@@ -1,9 +1,10 @@
 ---
 import { Image } from "astro:assets";
-import {
-    featured,
-    more,
-} from "../data/projects";
+import { getOrdered } from "../lib/collections";
+
+const projects = await getOrdered("projects");
+const featured = projects.flatMap(project => (project.featured ? [{ ...project, ...project.featured }] : []));
+const more = projects.filter(project => !project.featured);
 ---
 
 <section class="section" id="work" aria-labelledby="work-title">
@@ -40,7 +41,7 @@ import {
         <ul class="more">
             {more.map(project => (
                 <li class="reveal">
-                    <a href={project.href}>
+                    <a href={project.links[0]?.href}>
                         <span class="more-name">{project.name}</span>
                         <span class="more-description">{project.description}</span>
                         <span class="more-meta">{project.stack.join(" · ")}</span>

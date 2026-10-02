@@ -1,7 +1,9 @@
 ---
-import { profile } from "../data/profile";
+import { getProfile } from "../lib/profile";
 import Seal from "./Seal.astro";
 import HeroStage from "./stage/HeroStage.astro";
+
+const profile = await getProfile();
 ---
 
 <section class="hero" id="top">

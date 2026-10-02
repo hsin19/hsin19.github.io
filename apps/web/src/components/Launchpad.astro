@@ -1,7 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import { launchpad } from "../data/launchpad";
+import { getOrdered } from "../lib/collections";
 
+const launchpad = await getOrdered("launchpad");
 const host = (href: string) => new URL(href).host.replace(/^www\./, "");
 ---
 

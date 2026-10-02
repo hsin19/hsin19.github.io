@@ -1,6 +1,6 @@
 ---
 import { Font } from "astro:assets";
-import { profile } from "../data/profile";
+import { getProfile } from "../lib/profile";
 import "../styles/global.css";
 
 interface Props {
@@ -8,6 +8,7 @@ interface Props {
     description?: string;
 }
 
+const profile = await getProfile();
 const {
     title = `${profile.name} (${profile.nativeName}) — ${profile.role}`,
     description = profile.lead,

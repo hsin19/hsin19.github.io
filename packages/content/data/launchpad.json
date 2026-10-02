@@ -1,0 +1,28 @@
+[
+  {
+    "id": "inthegreenyet",
+    "name": "InTheGreenYet",
+    "note": "Portfolio tracker",
+    "href": "https://inthegreenyet.hsin19.com",
+    "icon": "../icons/inthegreenyet.svg"
+  },
+  {
+    "id": "show-me-way",
+    "name": "Show Me Way",
+    "note": "Trip companion",
+    "href": "https://trip.hsin19.com",
+    "icon": "../icons/show-me-way.svg"
+  },
+  {
+    "id": "efcore-docs",
+    "name": "EF Core Extensions",
+    "note": "Docs & NuGet",
+    "href": "https://hsin19.github.io/H.EFCore.Extensions"
+  },
+  {
+    "id": "github",
+    "name": "GitHub",
+    "note": "Everything else",
+    "href": "https://github.com/hsin19"
+  }
+]

@@ -1,6 +1,7 @@
 ---
-import { experience } from "../data/experience";
+import { getOrdered } from "../lib/collections";
 
+const experience = await getOrdered("experience");
 const { DEV } = import.meta.env;
 const entries = experience.filter(entry => DEV || !entry.draft);
 

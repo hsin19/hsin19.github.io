@@ -1,0 +1,12 @@
+{
+  "name": "@hsin19/content",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Profile, projects and experience data for the homepage. Static files for now; an API serving the same shapes can replace them later.",
+  "exports": {
+    "./package.json": "./package.json",
+    "./data/*": "./data/*",
+    "./icons/*": "./icons/*"
+  }
+}

@@ -1,8 +1,10 @@
 ---
-import { profile } from "../data/profile";
+import { getProfile } from "../lib/profile";
 import Seal from "./Seal.astro";
 
 const year = new Date().getFullYear();
+
+const profile = await getProfile();
 ---
 
 <section class="section contact" id="contact" aria-labelledby="contact-title">
