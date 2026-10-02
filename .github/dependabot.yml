@@ -1,0 +1,21 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      astro:
+        patterns: ['astro', '@astrojs/*']
+      tooling:
+        patterns: ['*']
+        exclude-patterns: ['astro', '@astrojs/*']
+    ignore:
+      # astro check supports TypeScript 6 only; revisit once TS 7.1 tooling is stable.
+      - dependency-name: typescript
+        update-types: ['version-update:semver-major']
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly

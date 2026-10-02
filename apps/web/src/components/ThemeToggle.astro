@@ -1,0 +1,123 @@
+<button class="theme-toggle" type="button" aria-label="Toggle color theme" data-theme-toggle>
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+        <circle cx="12" cy="12" r="8.25" fill="none" stroke="currentColor" stroke-width="1.5" />
+        <path d="M12 3.75a8.25 8.25 0 0 1 0 16.5Z" fill="currentColor" />
+    </svg>
+</button>
+
+<style>
+.theme-toggle {
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--bg-raised);
+    color: var(--ink);
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.2s var(--ease-out);
+}
+
+.theme-toggle:hover {
+    border-color: var(--line-strong);
+}
+
+.theme-toggle:active {
+    transform: scale(0.94);
+}
+
+svg {
+    rotate: var(--toggle-turn, 0deg);
+    transition: rotate 0.5s var(--ease-out);
+}
+</style>
+
+<style is:global>
+:root[data-theme="dark"] {
+    --toggle-turn: 180deg;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --toggle-turn: 180deg;
+    }
+}
+
+/* Theme switches ripple out from the toggle. */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+    animation: theme-reveal 0.6s var(--ease-out);
+}
+
+@keyframes theme-reveal {
+    from {
+        clip-path: circle(0 at var(--toggle-x, 100%) var(--toggle-y, 0));
+    }
+    to {
+        clip-path: circle(150vmax at var(--toggle-x, 100%) var(--toggle-y, 0));
+    }
+}
+</style>
+
+<script>
+const root = document.documentElement;
+const media = matchMedia("(prefers-color-scheme: dark)");
+const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+const themeColors = [...document.querySelectorAll<HTMLMetaElement>("meta[name=theme-color]")];
+const systemTheme = () => (media.matches ? "dark" : "light");
+const currentTheme = () => root.dataset.theme ?? systemTheme();
+
+// A manual theme overrides the media-scoped theme-color tags; following the system restores them.
+function syncThemeColor() {
+    const background = getComputedStyle(document.body).backgroundColor;
+    for (const meta of themeColors) {
+        meta.media = root.dataset.theme ? "all" : meta.dataset.media ?? "";
+        meta.content = root.dataset.theme ? background : meta.dataset.content ?? "";
+    }
+}
+
+function apply(theme: "light" | "dark") {
+    // Picking the system theme means "follow the system" again.
+    try {
+        if (theme === systemTheme()) {
+            delete root.dataset.theme;
+            localStorage.removeItem("theme");
+        } else {
+            root.dataset.theme = theme;
+            localStorage.setItem("theme", theme);
+        }
+    } catch {
+        root.dataset.theme = theme;
+    }
+    syncThemeColor();
+    document.dispatchEvent(new CustomEvent("themechange"));
+}
+
+for (const meta of themeColors) {
+    meta.dataset.media = meta.media;
+    meta.dataset.content = meta.content;
+}
+if (root.dataset.theme) syncThemeColor();
+
+for (const button of document.querySelectorAll<HTMLButtonElement>("[data-theme-toggle]")) {
+    button.addEventListener("click", () => {
+        const next = currentTheme() === "dark" ? "light" : "dark";
+        const rect = button.getBoundingClientRect();
+        root.style.setProperty("--toggle-x", `${rect.left + rect.width / 2}px`);
+        root.style.setProperty("--toggle-y", `${rect.top + rect.height / 2}px`);
+        if (!document.startViewTransition || reducedMotion.matches) apply(next);
+        else document.startViewTransition(() => apply(next));
+    });
+}
+
+media.addEventListener("change", () => {
+    if (!root.dataset.theme) document.dispatchEvent(new CustomEvent("themechange"));
+});
+</script>

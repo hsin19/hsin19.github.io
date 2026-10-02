@@ -1,0 +1,38 @@
+name: Deploy
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      # The lockfile lives at the workspace root, so the action runs there and builds apps/web.
+      - uses: withastro/action@v6
+        with:
+          node-version: 26
+          build-cmd: pnpm run build
+          out-dir: apps/web/dist
+          cache-dir: apps/web/node_modules/.astro
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

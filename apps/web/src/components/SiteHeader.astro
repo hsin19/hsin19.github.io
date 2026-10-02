@@ -1,0 +1,97 @@
+---
+import Seal from "./Seal.astro";
+import ThemeToggle from "./ThemeToggle.astro";
+
+const nav = [
+    { href: "#launchpad", label: "Launchpad", wide: true },
+    { href: "#work", label: "Work" },
+    { href: "#experience", label: "Experience" },
+    { href: "#contact", label: "Contact" },
+];
+---
+
+<header class="site-header">
+    <div class="container bar">
+        <a class="brand" href="#top" aria-label="Back to top">
+            <Seal class="brand-seal" decorative />
+            <span>hsin19</span>
+        </a>
+        <nav aria-label="Sections">
+            <ul>
+                {nav.map(item => <li class:list={{ wide: item.wide }}><a href={item.href}>{item.label}</a></li>)}
+            </ul>
+        </nav>
+        <ThemeToggle />
+    </div>
+</header>
+
+<style>
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in oklab, var(--bg) 78%, transparent);
+    backdrop-filter: blur(14px) saturate(1.2);
+    border-bottom: 1px solid color-mix(in oklab, var(--line) 70%, transparent);
+}
+
+.bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    height: 4rem;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-family: var(--font-code);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+.brand :global(.brand-seal) {
+    width: 1.625rem;
+    rotate: -4deg;
+    transition: rotate 0.4s var(--ease-out);
+}
+
+.brand:hover :global(.brand-seal) {
+    rotate: 4deg;
+}
+
+nav {
+    margin-left: auto;
+}
+
+ul {
+    display: flex;
+    gap: 0.25rem;
+}
+
+nav a {
+    display: block;
+    padding: 0.4rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.875rem;
+    color: var(--ink-2);
+    transition: color 0.2s, background-color 0.2s;
+}
+
+nav a:hover {
+    color: var(--ink);
+    background: color-mix(in oklab, var(--ink) 6%, transparent);
+}
+
+@media (width < 40rem) {
+    .wide {
+        display: none;
+    }
+
+    nav a {
+        padding-inline: 0.5rem;
+    }
+}
+</style>

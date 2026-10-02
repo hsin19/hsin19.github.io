@@ -1,0 +1,28 @@
+---
+import { getProfile } from "../lib/profile";
+
+interface Props {
+    class?: string;
+    decorative?: boolean;
+}
+
+const { class: className, decorative = false } = Astro.props;
+
+const profile = await getProfile();
+---
+
+{decorative
+    ? <span class:list={["seal", className]} aria-hidden="true" />
+    : <span class:list={["seal", className]} role="img" aria-label={`Seal reading ${profile.nativeName}`} />}
+
+<style>
+/* The seal is a mask so it can take the theme's vermilion instead of a fixed red. */
+.seal {
+    display: inline-block;
+    flex: none;
+    aspect-ratio: 737 / 747;
+    background: var(--seal);
+    mask: url("/seal.svg") center / contain no-repeat;
+    mix-blend-mode: var(--ink-blend);
+}
+</style>

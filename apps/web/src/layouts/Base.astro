@@ -1,0 +1,54 @@
+---
+import { Font } from "astro:assets";
+import { getProfile } from "../lib/profile";
+import "../styles/global.css";
+
+interface Props {
+    title?: string;
+    description?: string;
+}
+
+const profile = await getProfile();
+const {
+    title = `${profile.name} (${profile.nativeName}) — ${profile.role}`,
+    description = profile.lead,
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="author" content={profile.name} />
+        <link rel="canonical" href={canonical} />
+        <link rel="icon" href="/seal.svg" type="image/svg+xml" />
+        <link rel="sitemap" href="/sitemap-index.xml" />
+        <meta name="theme-color" content="#f4f1e9" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#0a100e" media="(prefers-color-scheme: dark)" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta name="twitter:card" content="summary" />
+
+        <Font cssVariable="--font-display" preload={[{ style: "normal" }]} />
+        <Font cssVariable="--font-sans" preload />
+        <Font cssVariable="--font-mono" />
+
+        <!-- Apply a saved theme before first paint so there is no flash. -->
+        <script is:inline>
+        try {
+            const theme = localStorage.getItem("theme");
+            if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme;
+        } catch {}
+        </script>
+    </head>
+    <body>
+        <slot />
+    </body>
+</html>
