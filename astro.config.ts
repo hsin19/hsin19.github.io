@@ -6,6 +6,7 @@ import {
 
 export default defineConfig({
     site: "https://hsin19.github.io",
+    server: { port: 6476 },
     integrations: [sitemap()],
     fonts: [
         {

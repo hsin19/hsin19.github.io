@@ -1,0 +1,27 @@
+<div class="stage" aria-hidden="true">
+    <canvas data-stage></canvas>
+</div>
+
+<style>
+.stage {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    mask-image: linear-gradient(to bottom, #000 55%, transparent);
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+}
+</style>
+
+<script>
+import { fireflies } from "./fireflies";
+
+const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+for (const canvas of document.querySelectorAll<HTMLCanvasElement>("canvas[data-stage]")) {
+    fireflies(canvas, { reducedMotion });
+}
+</script>

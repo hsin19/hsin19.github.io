@@ -1,0 +1,190 @@
+---
+import { experience } from "../data/experience";
+
+const { DEV } = import.meta.env;
+const entries = experience.filter(entry => DEV || !entry.draft);
+
+if (!DEV) {
+    for (const entry of experience.filter(entry => entry.todo)) {
+        console.warn(`[experience] ${entry.draft ? "hidden draft" : "todo"} — ${entry.org}: ${entry.todo}`);
+    }
+}
+---
+
+<section class="section" id="experience" aria-labelledby="experience-title">
+    <div class="container layout">
+        <header class="section-head reveal">
+            <p class="eyebrow">03 — Experience</p>
+            <h2 id="experience-title">Where I've been</h2>
+        </header>
+        <ol class="timeline">
+            {entries.map(entry => (
+                <li class:list={["entry reveal", entry.kind, { draft: entry.draft }]}>
+                    <p class="period">
+                        {entry.start} — {entry.end ?? "Now"}
+                    </p>
+                    <div class="content">
+                        <h3>{entry.org}</h3>
+                        <p class="role">{entry.role}</p>
+                        {entry.summary && <p class="summary">{entry.summary}</p>}
+                        {entry.stack && (
+                            <ul class="tags" aria-label="Tools">
+                                {entry.stack.map(item => <li>{item}</li>)}
+                            </ul>
+                        )}
+                        {DEV && entry.todo && <p class="todo">TODO · {entry.todo}</p>}
+                    </div>
+                </li>
+            ))}
+        </ol>
+    </div>
+</section>
+
+<style>
+.layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: 2rem clamp(2rem, 6vw, 5rem);
+}
+
+.section-head {
+    align-self: start;
+    position: sticky;
+    top: 6rem;
+}
+
+.timeline {
+    --period-width: 10.5rem;
+    position: relative;
+}
+
+.entry {
+    position: relative;
+    display: grid;
+    grid-template-columns: var(--period-width) minmax(0, 1fr);
+    gap: 0.25rem 1.75rem;
+    padding-bottom: 2.75rem;
+}
+
+/* The rail: one continuous line through every entry's dot. */
+.entry::before {
+    content: "";
+    position: absolute;
+    top: 0.55rem;
+    bottom: -0.55rem;
+    left: calc(var(--period-width) + 0.875rem);
+    width: 1px;
+    background: var(--line-strong);
+}
+
+.entry:last-child::before {
+    display: none;
+}
+
+.content {
+    position: relative;
+    display: grid;
+    gap: 0.4rem;
+    padding-left: 1.25rem;
+}
+
+.content::before {
+    content: "";
+    position: absolute;
+    top: 0.45rem;
+    left: calc(-0.875rem - 0.3rem);
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+}
+
+.entry:first-child .content::before {
+    background: var(--seal);
+    border-color: var(--seal);
+    box-shadow: 0 0 0 4px color-mix(in oklab, var(--seal) 18%, transparent);
+}
+
+.education .content::before {
+    border-style: dotted;
+}
+
+.period {
+    padding-top: 0.15rem;
+    font-family: var(--font-code);
+    font-size: 0.75rem;
+    letter-spacing: 0.03em;
+    color: var(--ink-3);
+    white-space: nowrap;
+}
+
+h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.role {
+    color: var(--ink-2);
+    font-size: 0.9375rem;
+}
+
+.summary {
+    max-width: 58ch;
+    margin-top: 0.35rem;
+    color: var(--ink-2);
+    font-size: 0.9375rem;
+    text-wrap: pretty;
+}
+
+.tags {
+    margin-top: 0.5rem;
+}
+
+.draft .content {
+    outline: 1px dashed var(--seal);
+    outline-offset: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.todo {
+    margin-top: 0.5rem;
+    font-family: var(--font-code);
+    font-size: 0.75rem;
+    color: var(--seal);
+}
+
+@media (width < 56rem) {
+    .layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .section-head {
+        position: static;
+    }
+}
+
+@media (width < 36rem) {
+    .entry {
+        grid-template-columns: minmax(0, 1fr);
+        padding-left: 1.75rem;
+    }
+
+    .entry::before {
+        left: 0.3rem;
+    }
+
+    .content {
+        padding-left: 0;
+    }
+
+    .content::before {
+        left: -1.75rem;
+    }
+
+    .period {
+        order: -1;
+    }
+}
+</style>
